@@ -7,7 +7,7 @@
             <img src="@/assets/companylogo.svg" alt="logo" class="company-logo">
           </router-link>
           <h2>
-            Create New <br/> <span class="header-span">TradeSyncPro</span> Account
+            Create New <br/> <span class="header-span">Digital Sync Trading</span> Account
           </h2>
           <p>
             NB: Investors are not allowed to keep their trade account dormant 2

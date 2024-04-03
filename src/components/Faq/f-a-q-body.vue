@@ -2,9 +2,9 @@
   <div>
     <section>
       <details>
-        <summary>WHAT IS TRADESYNCPRO</summary>
+        <summary>WHAT IS DIGITAL SYNC TRADING</summary>
         <p>
-          TradeSyncPro is an officially registered company and conducts
+          Digital Sync Trading is an officially registered company and conducts
           business under the laws of the UK Government. The company is involved
           in cryptocurrency trading and mining. Also trading other valuable
           commodities/assets which we offer to our clients to earn from using a
@@ -24,7 +24,7 @@
           HOW CAN I MAKE SURE YOUR COMPANY IS A REAL AND NOT A FAKE ONE
         </summary>
         <p>
-          TradeSyncPro is officially incorporated with the UK
+          Digital Sync Trading is officially incorporated with the UK
           Companies Office. verify registration: (click here)
 <!--          <a href="https://find-and-update.company-information.service.gov.uk/company/11557864">-->
 <!--            https://find-and-update.company-information.service.gov.uk/company/11557864-->
@@ -52,7 +52,7 @@
       <details>
         <summary>HOW LONG WILL YOUR COMPANY WORK?</summary>
         <p>
-          TradeSyncPro plans to make a stable and profitable
+          Digital Sync Trading plans to make a stable and profitable
           cooperation with clients for life.
         </p>
       </details>
@@ -113,7 +113,7 @@
           to 5 working days, depending on the sending bank while other methods
           take less. Cryptocurrency deposits are instant. Once we receive the
           funds in our bank account/wallet, they will be deposited into your
-          trading account. Please contact TradeSyncPro, in case you have
+          trading account. Please contact Digital Sync Trading, in case you have
           been charged with the deposit but funds are not showing in your
           trading account.
         </p>

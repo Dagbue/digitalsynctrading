@@ -8,7 +8,7 @@
 <!--     </div>-->
       <div class="seperate">
         <i class='bx bx-mail-send' ></i>&nbsp;&nbsp;
-        <p class="download-sub">support@tradeSyncPro.com</p>
+        <p class="download-sub">support@digitalsynctrading.com</p>
       </div>
       <div class="seperate">
         <i class='bx bxs-home' ></i>&nbsp;&nbsp;

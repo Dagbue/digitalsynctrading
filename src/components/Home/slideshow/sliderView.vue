@@ -59,7 +59,7 @@ export default {
         {
           id: 3,
           url: "https://cdn.pixabay.com/photo/2014/08/21/12/54/investment-423289_960_720.jpg",
-          title: "Enhance your trading experience with TradeSyncPro.",
+          title: "Enhance your trading experience with Digital Sync Trading.",
           title2: "Unprocessed spreads, instantaneous trade signals, and continuous support around the clock.",
           para: "Get started",
           para2: "Login",

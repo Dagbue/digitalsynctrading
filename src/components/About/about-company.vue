@@ -5,7 +5,7 @@
 
       <div class="about-section-1">
         <h4 class="about-header-1">We assist our clients in attaining their envisioned objectives</h4>
-        <p class="about-text-2">TradeSyncPro is designed to trade your investment(s) for your benefit in
+        <p class="about-text-2">Digital Sync Trading is designed to trade your investment(s) for your benefit in
           stocks options, gold and cryptocurrency. We ensure a consistent day-by-day profit from your investment(s).</p>
 
         <div class="box">

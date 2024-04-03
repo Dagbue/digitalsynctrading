@@ -7,7 +7,7 @@
             Enabling a worldwide network of empowered investors.
           </p>
           <h3 class="portfolio-header1-three">
-            TradeSyncPro stands as a global leader in social investment networks, dedicated to transforming the
+            Digital Sync Trading stands as a global leader in social investment networks, dedicated to transforming the
             landscape of investment practices and elevating financial education for investors.
           </h3>
           <h2 class="portfolio-header1-two">

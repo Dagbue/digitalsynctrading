@@ -90,7 +90,7 @@ video.responsive-video {
 }
 
 .text-2{
-  font-size: 30px;
+  font-size: 35px;
   padding-bottom: 10px;
   width: 80%;
 }

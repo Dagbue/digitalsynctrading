@@ -14,7 +14,7 @@
           <p class="text-2">Your Request Has Been Sent For Processing!!</p>
           <p class="text-3">Kindly Note:For Faster Response you can contact support at
             <span>
-              <a href="mailto:support@tradesyncpro.com" class="para-last">support@tadesyncpro.com</a>
+              <a href="mailto:support@digitalsynctrading.com" class="para-last">support@digitalsynctrading.com</a>
             </span>
           </p>
         </div>

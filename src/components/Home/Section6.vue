@@ -5,8 +5,8 @@
       <figure class="snip1533">
         <figcaption>
           <blockquote>
-            <p>Trade sync pro has the simplest interface of all and also has the fastest entry point into the market.I was
-              a banker who was deep in debt, but  with the help of Trade sync pro ..., now I am living well and
+            <p>Digital Sync Trading has the simplest interface of all and also has the fastest entry point into the market.I was
+              a banker who was deep in debt, but  with the help of Digital Sync Trading ..., now I am living well and
               comfortable with my family</p>
           </blockquote>
           <h3>Wisteria Ravenclaw</h3>
@@ -16,8 +16,8 @@
       <figure class="snip1533">
         <figcaption>
           <blockquote>
-            <p>My name is William Ursula Gurnmeister. Few weeks I have traded with Trade sync pro, i made enough profit of
-              2.8btc and my withdrawal was processed instantly. Trade sync pro is the best....</p>
+            <p>My name is William Ursula Gurnmeister. Few weeks I have traded with Digital Sync Trading, i made enough profit of
+              2.8btc and my withdrawal was processed instantly. Digital Sync Trading is the best....</p>
           </blockquote>
           <h3>Ursula Gurnmeister</h3>
           <h4>Business Woman</h4>
@@ -27,7 +27,7 @@
         <figcaption>
           <blockquote>
             <p>This is a more than a trading company. Giving you guys 5 ratings for your support services. Great
-              company. Awesome support.. Trade sync pro is the best.... </p>
+              company. Awesome support.. Digital Sync Trading is the best.... </p>
           </blockquote>
           <h3>Ronald Dooms</h3>
           <h4>Trader</h4>

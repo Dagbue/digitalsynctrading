@@ -14,7 +14,7 @@
           <p class="text-3">Transfer desired amount to the Wallet details below and have your balance funded</p>
           <p class="text-3">Note: After making your deposit,kindly send a screenshot/proof of deposit to
             <span class="note-span">
-              <a href="mailto:support@tradesyncpro.com" class="para-last">support@tradesyncpro.com</a>
+              <a href="mailto:support@tradesyncpro.com" class="para-last">support@digitalsynctrading.com</a>
             </span> for documentation and to boost the funding process
           </p>
           <br/>

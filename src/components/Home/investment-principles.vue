@@ -2,7 +2,7 @@
   <div class="section-2">
 
     <div class="text-box-2">
-      <h4 class="benefit-header">Benefits of Investing with TradeSyncPro</h4>
+      <h4 class="benefit-header">Benefits of Investing with Digital Sync Trading</h4>
       <p class="benefit-text">Managed funds offer several advantages, allowing investors to access diverse asset
         classes and market sectors for enhanced exposure and potential returns.</p>
       <ul class="list-alpha">

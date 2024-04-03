@@ -250,7 +250,7 @@ export default {
 }
 
 .logo {
-  width: 13%;
+  width: 14.5%;
   margin-left: 6%;
   margin-top: 0.8%;
   margin-bottom: 0.8%;

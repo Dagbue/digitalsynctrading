@@ -12,7 +12,7 @@
           <div class="footer-link-container">
             <h3 class="footer-title">About Us</h3>
             <p class="footer-link width">
-              Established on September 7, 2018, TradeSyncPro has its headquarters at 71-75 Uxbridge Road,
+              Established on September 7, 2014, Digital Sync Trading has its headquarters at 71-75 Uxbridge Road,
               London, England, with the official registration under company number 11557864. Our company takes pride
               in being a trusted and innovative digital asset trading platform tailored for a global clientele,
               leveraging the cutting-edge technology of Bittrex. We are committed to delivering a secure and reliable
@@ -30,18 +30,18 @@
             <a  class="footer-link" @click="onPostClick3">Register</a>
             <a  class="footer-link" @click="onPostClick4">F.A.Q</a>
             <a  class="footer-link" @click="onPostClick5">Contacts</a>
-            <a href="https://find-and-update.company-information.service.gov.uk/company/11557864" class="footer-link">Certifications</a>
+<!--            <a href="https://find-and-update.company-information.service.gov.uk/company/11557864" class="footer-link">Certifications</a>-->
           </div>
 
           <div class=" stay-connected">
             <h3 class="footer-title">Stay connected</h3>
             <div class="socials-container">
-              <div class="social-logo">
-                <div class="last-div">
-                  <i class='bx bxs-phone' ></i>
-                  <p class="last-div-para"><a href="https://wa.me/15102569690?text="  target="_blank">+1 (510) 256-9690</a></p>
-                </div>
-              </div>
+<!--              <div class="social-logo">-->
+<!--                <div class="last-div">-->
+<!--                  <i class='bx bxs-phone' ></i>-->
+<!--                  <p class="last-div-para"><a href="https://wa.me/15102569690?text="  target="_blank">+1 (510) 256-9690</a></p>-->
+<!--                </div>-->
+<!--              </div>-->
               <div class="social-logo">
                 <div class="last-div">
                   <i class='bx bxs-map' ></i>
@@ -51,7 +51,7 @@
               <div class="social-logo">
                 <div class="last-div">
                   <i class='bx bx-mail-send' style='color:#ffffff'></i>
-                  <p class="last-div-para"><a href="mailto:support@assetsmanagementlimited.com">support@tradeSyncPro.com</a></p>
+                  <p class="last-div-para"><a href="mailto:support@digitalsynctrading.com">support@digitalsynctrading.com</a></p>
                 </div>
               </div>
             </div>
@@ -69,8 +69,8 @@
       </div>
       <hr/>
       <div class="copyright">
-        <p>TradeSyncPro.com Trading LLC is part of TradeSyncPro.com Group of companies with broker entities
-          that are authorised and regulated across multiple jurisdictions. TradeSyncPro.com Trading LLC has it's
+        <p>Digital Sync Trading.com Trading LLC is part of Digital Sync Trading.com Group of companies with broker entities
+          that are authorised and regulated across multiple jurisdictions. Digital Sync Trading.com Trading LLC has it's
           business address at United States.</p>
         <br/>
         <p>The objects of the Company are all subject matters not forbidden by International Business Companies
@@ -108,16 +108,16 @@
 
       </div>
       <div class="copyright">
-        <p>Trade sync pro Markets is, depending on the context, a reference to Trade sync pro Markets Germany GmbH,
-          Trade sync pro Markets UK plc or Trade sync pro Spreadbet plc. Trade sync pro Markets Germany GmbH is a
+        <p>Digital Sync Trading Markets is, depending on the context, a reference to Digital Sync Trading Markets Germany GmbH,
+          Digital Sync Trading Markets UK plc or Digital Sync Trading Spreadbet plc. Digital Sync Trading Markets Germany GmbH is a
           company licensed and regulated by the Bundesanstalt für Finanzdienstleistungsaufsicht (BaFin) under
-          registration number 154814. Trade sync pro Markets UK Plc and Trade sync pro Spreadbet plc are registered in
+          registration number 154814. Digital Sync Trading Markets UK Plc and Digital Sync Trading Spreadbet plc are registered in
           the Register of Companies of the Financial Conduct Authority under registration numbers 173730 and 170627.</p>
 
       </div>
       <hr/>
       <div class="copyright">
-        <p>All rights reserved. Copyright © 2015 - 2024</p>
+        <p>All rights reserved. Copyright © 2014 - 2024</p>
       </div>
     </div>
   </div>
@@ -275,7 +275,7 @@ a:hover{
 }
 
 .google{
-  width: 40%;
+  width: 50%;
   margin-left: 2%;
   margin-top: 4%;
   margin-bottom: 1%;

@@ -6,7 +6,7 @@
     <div class="section-2-content-alpha">
       <img src="@/assets/first.png" alt="logo"/>
       <h3 class="section-2-content-header">Registered Company</h3>
-      <p>TradeSyncPro is a fully registered company. TradeSyncPro has its FCA and PRA licensing,
+      <p>Digital Sync Trading is a fully registered company. Digital Sync Trading has its FCA and PRA licensing,
         and We abide by the rules and regulations by host nations.</p>
     </div>
     <div class="section-2-content-alpha">

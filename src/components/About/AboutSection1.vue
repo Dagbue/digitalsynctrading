@@ -2,11 +2,11 @@
   <div class="alpha">
     <div class="section-1">
       <p class="header">Our True Strength Lies In Our Diversity And Multi-Faceted Approach To Finding Most Optimal Solutions</p>
-      <p class="sub-text">TradeSyncPro, a rapidly expanding boutique FX Broker, specializes in serving the B2B and
+      <p class="sub-text">Digital Sync Trading, a rapidly expanding boutique FX Broker, specializes in serving the B2B and
         institutional market segments. Founded by a seasoned global team of FX industry veterans, our collective
         market expertise spans decades, covering regions such as the United States, Asia Pacific, Eastern Europe,
         the Middle East, and Latin America. Our strength lies in our diversity and exceptional ability to efficiently
-        identify optimal solutions for our clients and partners. The TradeSyncPro team boasts a track record of
+        identify optimal solutions for our clients and partners. The Digital Sync Trading team boasts a track record of
         building top 10 global FX broker brands and contributing to the development of award-winning technology
         utilized by numerous white labels and API clients worldwide.</p>
     </div>
@@ -51,7 +51,7 @@
     </div>
 
     <div class="section-1">
-      <p class="sub-text">TradeSyncPro offers a diverse range of leading trading instruments, including FX, metals,
+      <p class="sub-text">Digital Sync Trading offers a diverse range of leading trading instruments, including FX, metals,
         indices, energy, and crypto, featuring competitive core spreads starting at zero pips. Leveraging our
         advanced STP/ECN technology and strong partnerships with tier one banks and prime brokers, we deliver
         customizable liquidity solutions capable of meeting the demands of sophisticated clients such as large-ticket
@@ -107,11 +107,11 @@
 
     <div class="section-1">
       <p class="sub-text">
-        TradeSyncPro pioneered the introduction of crypto-nominated accounts, establishing itself as one of the
-        earliest brokers worldwide to do so. With a comprehensive selection of 37 crypto CFDs, TradeSyncPro boasts
+        Digital Sync Trading pioneered the introduction of crypto-nominated accounts, establishing itself as one of the
+        earliest brokers worldwide to do so. With a comprehensive selection of 37 crypto CFDs, Digital Sync Trading boasts
         one of the most extensive crypto offerings in the market. Our platform provides a stable trading environment,
         complemented by favorable trading terms, and is renowned for its swift and reliable award-winning execution.
-        These factors collectively contribute to the preference of thousands of clients who choose TradeSyncPro for
+        These factors collectively contribute to the preference of thousands of clients who choose Digital Sync Trading for
         their trading needs.</p>
     </div>
 

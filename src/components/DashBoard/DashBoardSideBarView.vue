@@ -4,7 +4,7 @@
     <div v-if="user" class="sidebar" v-show="!mobile">
 
       <div class="logo">
-        <img src="@/assets/inverse.svg" alt="logo" class="afo-logo" />
+        <img src="@/assets/companylogo-inverse.svg" alt="logo" class="afo-logo" />
       </div>
 
       <ul class="nav-list" >
@@ -104,7 +104,7 @@
 <!--      </div>-->
 
       <div class="logo">
-        <img src="@/assets/inverse.svg" alt="logo" class="afo-logo-2" />
+        <img src="@/assets/companylogo-inverse.svg" alt="logo" class="afo-logo-2" />
       </div>
       <ul>
         <li @click="toggleMobileNav2">
@@ -140,29 +140,16 @@
         <li @click="toggleMobileNav2">
           <a>
             <img src="@/assets/pie-chart.svg" alt="logo" class="link-img" />
-            <router-link to="/subscription-trade" class="">Sub Trade</router-link>
+            <router-link to="/subscription-trade" class="">Copy Experts</router-link>
           </a>
         </li>
         <li @click="toggleMobileNav2">
           <a>
             <img src="../../assets/virtacc.svg" alt="logo" class="link-img" />
-            <router-link to="/refer-users" class="">Refer Users</router-link>
+            <router-link to="/refer-users" class="">Assets Market</router-link>
           </a>
         </li>
 
-        <li @click="toggleMobileNav2">
-          <a>
-            <img src="../../assets/walletmana.svg" alt="logo" class="link-img" />
-            <router-link to="/loan" class="">Loan Req</router-link>
-          </a>
-        </li>
-
-        <li @click="toggleMobileNav2">
-          <a>
-            <img src="../../assets/dashboardlogo.svg" alt="logo" class="link-img" />
-            <router-link to="/loan-dashboard" class="">Loan Dash</router-link>
-          </a>
-        </li>
 
         <li @click="toggleMobileNav2">
           <a>

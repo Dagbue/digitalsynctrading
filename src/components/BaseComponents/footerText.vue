@@ -2,27 +2,27 @@
   <div class="alpha">
 
     <div class="section-1">
-      <p class="header">FINRA BrokerCheck reports for TradeSyncPro and its investment
+      <p class="header">FINRA BrokerCheck reports for Digital Sync Trading and its investment
         professionals are available at www.finra.org/brokercheck</p>
       <div class="section-1-inner">
         <p>1.   Restrictions apply. For additional information on interest rates, click here. Credit interest rate as
           of 06/02/23.</p>
         <p>2.   Lowest Cost Broker according to StockBrokers.com Online Broker Survey 2023: Read the full article Online
-          Broker Reviews, May 18, 2023. "Because TradeSyncPro' core clientele are professional traders and
+          Broker Reviews, May 18, 2023. "Because Digital Sync Trading' core clientele are professional traders and
           institutional investors (e.g., hedge funds), it is crucial to provide the lowest commissions schedule
-          available. In our rigorous assessment, there is no question TradeSyncPro delivers."</p>
+          available. In our rigorous assessment, there is no question Digital Sync Trading delivers."</p>
         <p>3.    Restrictions apply. Annual Percentage Rate (APR) on USD margin loan balances for AML Pro as of
-          06/02/23. TradeSyncPro calculates the interest charged on margin loans using the applicable rates for
+          06/02/23. Digital Sync Trading calculates the interest charged on margin loans using the applicable rates for
           each interest rate tier listed on its website. For additional information on margin loan rates, click here</p>
         <p>4.   ITA Lite provides commission-free trades in US exchange-listed stocks and ETFs. For complete information,
           see. </p>
         <p>5.   Lower investment costs will increase your overall return on investment, but lower costs do not guarantee
           that your investment will be profitable.</p>
         <p>6.   For complete information, see www.incometradeassets.com.</p>
-        <p>7.   Available currencies vary by TradeSyncPro affiliate.</p>
-        <p>8.   TradeSyncPro Group and its affiliates. For additional information view our Investors Relations -
+        <p>7.   Available currencies vary by Digital Sync Trading affiliate.</p>
+        <p>8.   Digital Sync Trading Group and its affiliates. For additional information view our Investors Relations -
           Earnings Release section by clicking here.</p>
-        <p>9.   TradeSyncPro rating by Standard & Pool's. View report</p>
+        <p>9.   Digital Sync Trading rating by Standard & Pool's. View report</p>
       </div>
 
       </div>

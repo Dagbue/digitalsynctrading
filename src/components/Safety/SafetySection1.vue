@@ -1,7 +1,7 @@
 <template>
   <div class="section-alpha">
 
-    <p class="section-header-1">8 Big Reasons Why Your Funds Are Safe With TradeSyncPro</p>
+    <p class="section-header-1">8 Big Reasons Why Your Funds Are Safe With Digital Sync Trading</p>
     <p class="section-header">
       Ensuring the safe and confident execution of trading activities is our top priority. We continually introduce new
       features to enrich and broaden your investment experience, making it accessible from any device and location.</p>
@@ -13,7 +13,7 @@
         <div class="box">
           <img src="@/assets/protection.png" class="about-image-2" alt="assets-image"/>
           <h5>DDOS PROTECTION & MULTIPLE REDUNDANCY</h5>
-          <p>TradeSyncPro invested heavily into building the best in class DDOS protected server network with
+          <p>Digital Sync Trading invested heavily into building the best in class DDOS protected server network with
             multiple layers of redundancies, backup hardware and software tools, failover price feeds, global
             datacenters and optimized regional routing networks, giving our clients a 99,99% server uptime and
             carefree trading experience even during the most highly traded global news events</p>
@@ -22,7 +22,7 @@
         <div class="box">
           <img src="@/assets/stamp.png" class="about-image-2" alt="assets-image"/>
           <h5>HIGH REGULATORY STANDARDS</h5>
-          <p>TradeSyncPro Group umbrella includes FCA regulated broker, ensuring that all our policies and
+          <p>Digital Sync Trading Group umbrella includes FCA regulated broker, ensuring that all our policies and
             procedures are designed with highest regulatory standards in mind.</p>
         </div>
 
@@ -33,15 +33,15 @@
         <div class="box">
           <img src="@/assets/no-access.png" class="about-image-2" alt="assets-image"/>
           <h5>NEGATIVE BALANCE PROTECTION</h5>
-          <p>Unlike traditional futures or options brokerages, TradeSyncPro offer all its clients negative
+          <p>Unlike traditional futures or options brokerages, Digital Sync Trading offer all its clients negative
             balance protection guarantee. Even during the fast-volatile market moves, you will never experience losses
-            that exceed your account balance with TradeSyncPro.</p>
+            that exceed your account balance with Digital Sync Trading.</p>
         </div>
 
         <div class="box">
           <img src="@/assets/audit.png" class="about-image-2" alt="assets-image"/>
           <h5>REGULAR AUDITS</h5>
-          <p>Having a global network of companies, TradeSyncPro conducts periodic audits of all its books and
+          <p>Having a global network of companies, Digital Sync Trading conducts periodic audits of all its books and
             transactions with daily internal reporting affording the highest level of hands-on financial management.</p>
         </div>
 
@@ -52,9 +52,9 @@
         <div class="box">
           <img src="@/assets/risk-management.png" class="about-image-2" alt="assets-image"/>
           <h5>ROBUST RISK MANAGEMENT</h5>
-          <p>TradeSyncPro pedigree is deeply rooted in managing institutional grade liquidity and working with
+          <p>Digital Sync Trading pedigree is deeply rooted in managing institutional grade liquidity and working with
             professional clients. Our team boast decades in combined risk management experience, with multiple
-            successful “black swan” event behind our belt. TradeSyncPro is using state-of-the-art real-time
+            successful “black swan” event behind our belt. Digital Sync Trading is using state-of-the-art real-time
             liquidity and risk management monitoring tools and proprietary algorithms in order to match our Top-tier
             liquidity providers with our clients’ trading orders.</p>
         </div>
@@ -62,7 +62,7 @@
         <div class="box">
           <img src="@/assets/controls.png" class="about-image-2" alt="assets-image"/>
           <h5>SECURED MEMBER AREA</h5>
-          <p>Each registered client or partner of TradeSyncPro enjoys a secured Member Area with high level of
+          <p>Each registered client or partner of Digital Sync Trading enjoys a secured Member Area with high level of
             encryption protocols and auto-detection of suspicious activity</p>
         </div>
 
@@ -74,14 +74,14 @@
           <img src="@/assets/user-secured.png" class="about-image-2" alt="assets-image"/>
           <h5>SEGREGATED CUSTOMER FUNDS</h5>
           <p>All our customer funds are held in segregated accounts with top tier banks and selected financial
-            institutions. It is also TradeSyncPro company policy to never use customer funds for any of the
+            institutions. It is also Digital Sync Trading company policy to never use customer funds for any of the
             company’s business financing needs, hence affording our customers funds the safety they deserve.</p>
         </div>
 
         <div class="box">
           <img src="@/assets/funds.png" class="about-image-2" alt="assets-image"/>
           <h5>STRINGENT CAPITAL CONTROLS</h5>
-          <p>TradeSyncPro only works with carefully vetted payment system providers with tight risk management
+          <p>Digital Sync Trading only works with carefully vetted payment system providers with tight risk management
             controls on all the transactions and swift settlement of funds, hence reducing the 3rd party risks to a minimum.</p>
         </div>
 

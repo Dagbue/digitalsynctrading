@@ -7,7 +7,7 @@
           WHY INVEST
         </p>
         <p class="text-2">
-          With TradeSyncPro
+          With Digital Sync Trading
         </p>
         <p class="text-3">
           Our objective is to optimize investor returns while minimizing potential losses through a disciplined and

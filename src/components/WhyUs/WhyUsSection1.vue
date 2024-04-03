@@ -1,7 +1,7 @@
 <template>
   <div class="alpha">
     <div class="section-1">
-      <p class="header">10 Reasons Why TradeSyncPro</p>
+      <p class="header">10 Reasons Why Digital Sync Trading</p>
       <p class="sub-text">Our seasoned team of industry experts has meticulously crafted a cutting-edge trading
         environment, featuring state-of-the-art architecture, exceptional trading terms, and robust partnership
         programs. Explore a diverse selection of over 100 CFD instruments and embark on your trading journey today!</p>

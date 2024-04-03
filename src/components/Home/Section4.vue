@@ -34,7 +34,7 @@
             </div>
             <div class="inner">
               <img src="@/assets/arrow.svg" alt="arrow" class="image-2" />
-              <p>Deposit into your Investment Account</p>
+              <p>Deposit into your Account</p>
             </div>
           </div>
 
@@ -82,8 +82,8 @@ export default {
   align-items: center;
 }
 .image{
-  width: 70%;
-  height: 70%;
+  width: 75%;
+  height: 75%;
   display: block;
   margin-right: auto;
   margin-left: auto;

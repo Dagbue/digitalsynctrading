@@ -1,17 +1,17 @@
 <template>
   <div class="alpha">
 
-    <div class="section-1">
-      <div class="video">
-        <iframe width="400" height="340" src="https://www.youtube.com/embed/jWtmuRn_n5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="video">
-        <iframe width="400" height="340" src="https://www.youtube.com/embed/jWtmuRn_n5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="video">
-        <iframe width="400" height="340" src="https://www.youtube.com/embed/jWtmuRn_n5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-    </div>
+<!--    <div class="section-1">-->
+<!--      <div class="video">-->
+<!--        <iframe width="400" height="340" src="https://www.youtube.com/embed/jWtmuRn_n5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+<!--      </div>-->
+<!--      <div class="video">-->
+<!--        <iframe width="400" height="340" src="https://www.youtube.com/embed/jWtmuRn_n5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+<!--      </div>-->
+<!--      <div class="video">-->
+<!--        <iframe width="400" height="340" src="https://www.youtube.com/embed/jWtmuRn_n5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+<!--      </div>-->
+<!--    </div>-->
 
     <div class="section-2">
       <figure class="snip1533">
@@ -28,7 +28,7 @@
       <figure class="snip1533">
         <figcaption>
           <blockquote>
-            <p>Since joining Trade Sync Pro, I've experienced consistent profits. The signals are accurate, and the
+            <p>Since joining Digital Sync Trading, I've experienced consistent profits. The signals are accurate, and the
               real-time market analysis has been invaluable in making informed trading decisions.</p>
           </blockquote>
           <h3>Sarah L.</h3>

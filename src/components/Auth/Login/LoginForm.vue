@@ -7,7 +7,7 @@
           <img src="@/assets/companylogo.svg" alt="logo" class="company-logo">
           </router-link>
           <h2>
-            Sign In With Your <br/> <span class="header-span">TradeSyncPro</span> Account
+            Sign In With Your <br/> <span class="header-span">Digital Sync Trading</span> Account
           </h2>
         </div>
 
@@ -168,7 +168,7 @@ form {
 
 .header-span {
   color: #2e8cec;
-  font-size: 25px;
+  /*font-size: 25px;*/
 }
 
 .wrapper {
@@ -200,7 +200,7 @@ form {
 
 .wrapper .headline h2 {
   font-weight: 400;
-  font-size: 22px;
+  font-size: 24px;
   padding-top: 1%;
   padding-bottom: 1%;
   /*margin-top: 10%;*/
