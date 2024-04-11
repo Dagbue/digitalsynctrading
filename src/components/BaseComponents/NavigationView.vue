@@ -99,7 +99,7 @@
       <div class="mobile">
         <div>
           <ul class="dropdown-nav" v-show="mobileNav">
-            <img alt="company logo" src="@/assets/inverse.svg" class="logo2" />
+            <img alt="company logo" src="@/assets/companylogo-inverse.svg" class="logo2" />
 
             <label class="accordion-wrapper">
               <input type="checkbox" class="accordion" hidden />
