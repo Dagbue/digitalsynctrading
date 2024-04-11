@@ -58,7 +58,7 @@
           <li>
             <a class="hover">
               <img src="@/assets/pie-chart.svg" alt="logo" class="link-img" />
-              <span class="links-name">Copy Experts</span>
+              <span class="links-name">Experts</span>
             </a>
           </li>
         </router-link>
@@ -140,7 +140,7 @@
         <li @click="toggleMobileNav2">
           <a>
             <img src="@/assets/pie-chart.svg" alt="logo" class="link-img" />
-            <router-link to="/subscription-trade" class="">Copy Experts</router-link>
+            <router-link to="/subscription-trade" class="">Experts</router-link>
           </a>
         </li>
         <li @click="toggleMobileNav2">

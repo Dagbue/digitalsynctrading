@@ -99,7 +99,7 @@
       <div class="mobile">
         <div>
           <ul class="dropdown-nav" v-show="mobileNav">
-            <img alt="company logo" src="@/assets/companylogo.svg" class="logo2" />
+            <img alt="company logo" src="@/assets/inverse.svg" class="logo2" />
 
             <label class="accordion-wrapper">
               <input type="checkbox" class="accordion" hidden />
@@ -399,8 +399,8 @@ i{
 }
 
 .logo2{
-  padding-top: 4%;
-  width: 60%;
+  padding-top: 5%;
+  width: 65%;
 }
 
 .dropdown-nav li {
@@ -683,7 +683,7 @@ a:hover {
     font-size: 35px;
   }
   .logo {
-    min-width: 35%;
+    min-width: 40%;
     margin-left: 5px;
     margin-top: 8px;
     padding-left: unset;
