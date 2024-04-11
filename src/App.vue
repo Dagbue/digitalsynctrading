@@ -1,9 +1,9 @@
 <template>
   <div class="alpha">
     <navigation-view/>
-    <a href="https://wa.me/15102569690?text="  target="_blank" class="whatsapp_float">
-      <i class='bx bxl-whatsapp'></i>
-    </a>
+<!--    <a href="https://wa.me/15102569690?text="  target="_blank" class="whatsapp_float">-->
+<!--      <i class='bx bxl-whatsapp'></i>-->
+<!--    </a>-->
 
     <router-view v-slot="{ Component }">
       <transition name="route" mode="out-in">
