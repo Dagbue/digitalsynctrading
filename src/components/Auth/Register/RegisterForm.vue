@@ -326,9 +326,11 @@
               >
             </div>
 
-            <button  class="btn btn-white btn-animated"
-            >Create Account</button
-            >
+<!--            <button  class="btn btn-white btn-animated"-->
+<!--            >Create Account</button>-->
+
+            <base-button :loading="loading">Create Account</base-button>
+
 <!--            <div v-if="error">{{ error }}</div>-->
             <div class="separator">
               <div class="line"></div>
@@ -362,11 +364,12 @@ import {getAuth, sendEmailVerification} from "firebase/auth";
 import {getFirestore, doc, setDoc, serverTimestamp,} from "firebase/firestore";
 import { set, push, } from "firebase/database";
 import Swal from "sweetalert2";
+import BaseButton from "@/components/BaseComponents/buttons/BaseButton.vue";
 
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: 'RegisterForm',
-  components: {TermsBaseModal},
+  components: {BaseButton, TermsBaseModal},
   data() {
     return {
       dialogIsVisible: false,
@@ -406,12 +409,75 @@ export default {
     const file = ref(null)
     const filepath = ref(null)
     const error = ref(null)
+    const loading = ref(false)
 
     const store = useStore()
     const router = useRouter()
 
     const handleSubmit = async () => {
+      // try {
+      //   await store.dispatch('signup', {
+      //     email: email.value,
+      //     password: password.value,
+      //   });
+      //   await sendEmailVerification(auth.currentUser)
+      //       .then(() => {
+      //         console.log('mail sent')
+      //       });
+      //   // noinspection JSUnresolvedFunction,JSCheckFunctionSignatures
+      //   await setDoc(doc(db, auth.currentUser.email, "USER"), {
+      //     email: email.value,
+      //     password: password.value,
+      //     firstName: firstName.value,
+      //     lastName: lastName.value,
+      //     phoneNumber: phoneNumber.value,
+      //     country: country.value,
+      //     referral: referral.value,
+      //     deposit: deposit.value,
+      //     withdrawal: withdrawal.value,
+      //     bonus: bonus.value,
+      //     bonusMain: bonusMain.value,
+      //     profits: profits.value,
+      //     createdAt: serverTimestamp()
+      //   },{merge: true})
+      //       .then(() => {
+      //         console.log('saved')
+      //       });
+      //
+      //   await setDoc(doc(db, "listOfUsers", auth.currentUser.email), {
+      //     email: email.value,
+      //     password: password.value,
+      //     firstName: firstName.value,
+      //     lastName: lastName.value,
+      //     referral: referral.value,
+      //     phoneNumber: phoneNumber.value,
+      //     country: country.value,
+      //     createdAt: serverTimestamp()
+      //   },{merge: true})
+      //       .then(() => {
+      //         console.log('saved')
+      //       });
+      //
+      //
+      //   await Swal.fire({
+      //     icon: 'success',
+      //     title: 'Success',
+      //     // text: 'Something went wrong!',
+      //   });
+      //   await router.push('/email-auth');
+      // }
+      // catch (err) {
+      //   error.value = err.message
+      //   await Swal.fire({
+      //     icon: 'error',
+      //     title: 'error',
+      //     text: err.message,
+      //   });
+      // }
+
+
       try {
+        loading.value = true;
         await store.dispatch('signup', {
           email: email.value,
           password: password.value,
@@ -469,7 +535,10 @@ export default {
           title: 'error',
           text: err.message,
         });
+      } finally {
+        loading.value = false;
       }
+
     };
 
 
@@ -483,7 +552,7 @@ export default {
       country, referral,
       url,filepath,deposit,
       withdrawal,bonus,bonusMain,
-      profits,file,
+      profits,file,loading,
       handleSubmit, error,
       set, push, ref, sendEmailVerification,
       setDoc, doc
@@ -569,7 +638,6 @@ form {
 .wrapper .headline h2 {
   font-weight: 400;
   font-size: 19px;
-  padding-top: 1%;
   padding-bottom: 1%;
   /*margin-top: 10%;*/
 }
@@ -699,6 +767,7 @@ form {
 .separator {
   display: flex;
   align-items: center;
+  margin-top: 3%;
 }
 
 .separator .line {

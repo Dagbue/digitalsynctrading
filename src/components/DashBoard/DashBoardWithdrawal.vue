@@ -31,7 +31,10 @@
               </select>
             </div>
           </div>
-          <input type="submit"  class="bank-trans-btn" placeholder="Enter Amount" />
+<!--          <input type="submit"  class="bank-trans-btn" placeholder="Enter Amount" />-->
+          <div class="submit">
+            <base-button :loading="loading">Proceed</base-button>
+          </div>
         </form>
 
       </div>
@@ -45,11 +48,13 @@ import router from "@/router";
 import {  ref, set, push, serverTimestamp,} from "firebase/database";
 import { database, auth , db } from "@/firebase/config";
 import {collection, doc, getDocs, increment, setDoc} from "firebase/firestore";
+import BaseButton from "@/components/BaseComponents/buttons/BaseButton.vue";
+import Swal from "sweetalert2";
 
 
 export default {
   name: "DashBoardWithdrawal",
-  components: {WithdrawalModal},
+  components: {BaseButton, WithdrawalModal},
   data() {
     return {
       dialogIsVisible: false,
@@ -61,6 +66,7 @@ export default {
       contacts: [],
       walletAddress: "",
       deposit:'',
+      loading: false,
     };
   },
   async created() {
@@ -89,62 +95,82 @@ export default {
       await router.push('/over-view')
     },
     async showDialog() {
-      await setDoc(doc(db, auth.currentUser.email, "USER"), {
-        withdrawal: increment(this.withdrawal),
-        withdrawalmethod: this.withdrawalmethod,
-        statusWithdrawal: this.statusWithdrawal
-      }, {merge: true})
-          .then(() => {
-            console.log('saved the Withdrawal')
-          })
+      try {
+        this.loading = true;
+        // noinspection JSUnresolvedFunction,JSCheckFunctionSignatures
+        await setDoc(doc(db, auth.currentUser.email, "USER"), {
+          withdrawal: increment(this.withdrawal),
+          withdrawalmethod: this.withdrawalmethod,
+          statusWithdrawal: this.statusWithdrawal
+        }, {merge: true})
+            .then(() => {
+              console.log('saved the Withdrawal')
+            })
 
-      await setDoc(doc(db, "Investment", auth.currentUser.email), {
-        withdrawal: increment(this.withdrawal),
-        withdrawalmethod: this.withdrawalmethod,
-        statusWithdrawal: this.statusWithdrawal,
-        email: this.email
-      }, {merge: true})
-          .then(() => {
-            console.log('saved the Withdrawal admin')
-          })
+        await setDoc(doc(db, "Investment", auth.currentUser.email), {
+          withdrawal: increment(this.withdrawal),
+          withdrawalmethod: this.withdrawalmethod,
+          statusWithdrawal: this.statusWithdrawal,
+          email: this.email
+        }, {merge: true})
+            .then(() => {
+              console.log('saved the Withdrawal admin')
+            })
 
-      const myUserId = auth.currentUser.uid;
-      const Deposit = ref(database, myUserId + "/WithdrawalRequests");
-      const newDeposit = push(Deposit);
-      await set(newDeposit, {
-        withdrawalmethod: this.withdrawalmethod,
-        withdrawal: this.withdrawal,
-        createdAt: serverTimestamp(),
-      })
+        const myUserId = auth.currentUser.uid;
+        const Deposit = ref(database, myUserId + "/WithdrawalRequests");
+        const newDeposit = push(Deposit);
+        await set(newDeposit, {
+          withdrawalmethod: this.withdrawalmethod,
+          withdrawal: this.withdrawal,
+          createdAt: serverTimestamp(),
+        })
 
-      const myUserId3 = auth.currentUser.uid;
-      const Deposit3 = ref(database, myUserId3 + "/Transactions");
-      const newDeposit3 = push(Deposit3);
-      await set(newDeposit3, {
-        Method: this.withdrawalmethod,
-        deposit: this.withdrawal,
-        email: this.email,
-        status: this.statusWithdrawal,
-        transactionType: this.transactionType,
-        createdAt: serverTimestamp(),
-      })
+        const myUserId3 = auth.currentUser.uid;
+        const Deposit3 = ref(database, myUserId3 + "/Transactions");
+        const newDeposit3 = push(Deposit3);
+        await set(newDeposit3, {
+          Method: this.withdrawalmethod,
+          deposit: this.withdrawal,
+          email: this.email,
+          status: this.statusWithdrawal,
+          transactionType: this.transactionType,
+          createdAt: serverTimestamp(),
+        })
 
-      const Deposit2 = ref(database, "/WithdrawalRequests");
-      const newDeposit2 = push(Deposit2);
-      await set(newDeposit2, {
-        withdrawalmethod: this.withdrawalmethod,
-        withdrawal: this.withdrawal,
-        statusWithdrawal: this.statusWithdrawal,
-        email: this.email,
-        createdAt: serverTimestamp(),
-      })
-      this.dialogIsVisible = true;
+        const Deposit2 = ref(database, "/WithdrawalRequests");
+        const newDeposit2 = push(Deposit2);
+        await set(newDeposit2, {
+          withdrawalmethod: this.withdrawalmethod,
+          withdrawal: this.withdrawal,
+          statusWithdrawal: this.statusWithdrawal,
+          email: this.email,
+          createdAt: serverTimestamp(),
+        })
+        this.dialogIsVisible = true;
+      }
+      catch (err) {
+        this.error = err.message
+        await Swal.fire({
+          icon: 'error',
+          title: 'error',
+          text: err.message,
+        });
+      } finally {
+        this.loading = false;
+      }
     },
   }
 }
 </script>
 
 <style scoped>
+.submit{
+  display: block;
+  width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}
 .section-1{
   margin-top: 5%;
 }

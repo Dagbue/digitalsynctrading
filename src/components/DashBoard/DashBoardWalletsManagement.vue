@@ -30,7 +30,10 @@
             </div>
           </div>
 
-          <button class="bank-trans-btn" >Submit</button>
+<!--          <button class="bank-trans-btn" >Submit</button>-->
+          <div class="submit">
+            <base-button :loading="loading">Proceed</base-button>
+          </div>
         </form>
 
       </div>
@@ -45,18 +48,52 @@ import {useRouter} from "vue-router";
 import {getAuth} from "firebase/auth";
 import {doc, updateDoc, getFirestore, serverTimestamp} from "firebase/firestore";
 import Swal from "sweetalert2";
+import BaseButton from "@/components/BaseComponents/buttons/BaseButton.vue";
 export default {
   name: "DashBoardWalletsManagement",
+  components: {BaseButton},
   setup() {
     const bitcoinAddress = ref('')
     const ethereumAddress = ref('')
     const litcoinAddress = ref('')
+    const loading = ref(false);
     const error = ref(null)
 
     const router = useRouter()
 
     const handleSubmit = async () => {
+      // try {
+      //   // noinspection JSUnresolvedFunction,JSCheckFunctionSignatures
+      //   updateDoc(doc(db, auth.currentUser.email, "USER"), {
+      //     bitcoinAddress: bitcoinAddress.value,
+      //     ethereumAddress: ethereumAddress.value,
+      //     litcoinAddress: litcoinAddress.value,
+      //     createdAt: serverTimestamp()
+      //   })
+      //       .then( async () => {
+      //
+      //       })
+      //
+      //   await Swal.fire({
+      //     icon: 'success',
+      //     title: 'Success',
+      //     text: 'Wallet Addresses Saved Successfully',
+      //   });
+      //   await router.push('/over-view')
+      // }
+      // catch (err) {
+      //   error.value = err.message;
+      //   Swal.fire({
+      //     icon: 'error',
+      //     title: 'Error',
+      //     text: this.error,
+      //   }).then(() => {
+      //
+      //   });
+      // }
+
       try {
+        loading.value = true;
         // noinspection JSUnresolvedFunction,JSCheckFunctionSignatures
         updateDoc(doc(db, auth.currentUser.email, "USER"), {
           bitcoinAddress: bitcoinAddress.value,
@@ -76,14 +113,14 @@ export default {
         await router.push('/over-view')
       }
       catch (err) {
-        error.value = err.message;
-        Swal.fire({
+        error.value = err.message
+        await Swal.fire({
           icon: 'error',
-          title: 'Error',
-          text: this.error,
-        }).then(() => {
-
+          title: 'error',
+          text: err.message,
         });
+      } finally {
+        loading.value = false;
       }
     }
 
@@ -93,7 +130,7 @@ export default {
 
     return {
       bitcoinAddress,ethereumAddress,litcoinAddress,
-      handleSubmit, error,
+      handleSubmit, error,loading,
       updateDoc, doc
     }
   },
@@ -101,6 +138,12 @@ export default {
 </script>
 
 <style scoped>
+.submit{
+  display: block;
+  width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}
 .section-1{
   margin-top: 5%;
 }

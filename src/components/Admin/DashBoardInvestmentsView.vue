@@ -133,7 +133,6 @@ export default {
       this.contacts.push(data)
     })
 
-
   },
 
   methods: {

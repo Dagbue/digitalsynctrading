@@ -1,323 +1,253 @@
 <template>
-  <div class="alpha" >
-    <form class="logoIn" @submit.prevent="handleSubmit">
-      <div class="wrapper">
-        <div class="headline">
-          <router-link to="/">
-            <img src="@/assets/companylogo.svg" alt="logo" class="company-logo">
-          </router-link>
-          <h2>
-            Login With Users Account
-          </h2>
+  <div>
+    <div style="color: white;" class="section-2-alpha">
+      <p class="text-1">Payment Details</p>
+      <hr/>
+      <div class="form">
+
+
+        <div class="space">
+          <label>Enter Bitcoin Address</label>
+          <input type="text" v-model="bitcoinAddress"  class="form-input"/>
         </div>
-        <div class="form">
-          <div class="logoIn">
-            <div class="form-group">
-              <input type="email" placeholder="Email"  name="email" v-model="email" />
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password"  name="password" v-model="password" />
-            </div>
 
-<!--            <div class="form-group-2">-->
-<!--              <input-->
-<!--                  type="checkbox"-->
-<!--                  placeholder="Remember-Me"-->
-<!--                  id="remember-me"-->
-<!--                  class="checkbox"-->
-<!--              />-->
-<!--              <label for="remember-me" class="checkbox-text">Remember me</label>-->
-<!--                            <a  class="forgot-password" @click="onPostClick2" >Forgot Password</a>-->
-<!--            </div>-->
 
-            <button  class="btn btn-white btn-animated" >Sign In</button>
-                        <div v-if="error">{{ error }}</div>
-
-            <!--            <div class="separator">-->
-            <!--              <div class="line"></div>-->
-            <!--              <h2>OR</h2>-->
-            <!--              <div class="line"></div>-->
-            <!--            </div>-->
-
-            <!--            <div class="create-acc">-->
-            <!--              <p class="create-text">Don’t have an account?<a @click="onPostClick" class="create-link">Sign up here</a>-->
-            <!--              </p>-->
-            <!--            </div>-->
-          </div>
+        <div class="space">
+          <label>Enter Ethereum Address</label>
+          <input type="text" v-model="ethereumAddress"   class="form-input"/>
         </div>
+
+
+
+
+        <div class="space">
+          <label>Enter USDT Address</label>
+          <input type="text" v-model="usdtAddress"  class="form-input"/>
+        </div>
+
+
+
+
+        <!--          <div class="space">-->
+        <!--            <label>Account Number</label>-->
+        <!--            <input type="text" v-model="accountNumber"  class="form-input"/>-->
+        <!--          </div>-->
+
+
+
+
+
+        <!--          <div class="space">-->
+        <!--            <label>Routing Number</label>-->
+        <!--            <input type="text" v-model="routingNumber"  class="form-input"/>-->
+        <!--          </div>-->
+
+
+
+
+        <div class="btn-alpha">
+          <!--          <p @click="press" class="btn">Get Current Payment details</p>-->
+          <!--          <base-button  style="  background-color: #5d78ff;border: 1px solid #5d78ff;" :loading="loading">Get Current Payment details</base-button>-->
+          <!--          <br/>-->
+          <!--          <base-button @click="update" style=" background-color: #5d78ff;border: 1px solid #5d78ff;" :loading="loading">Update Payment details</base-button>-->
+
+          <p @click="showDialog"  class="btn">Update Payment details</p>
+
+        </div>
+
+
       </div>
-    </form>
+    </div>
+
   </div>
 </template>
 
 <script>
-import { ref, computed } from 'vue'
-import { useStore } from 'vuex'
-import { useRouter } from 'vue-router'
-import {getFirestore, collection, getDocs} from "firebase/firestore";
-import {getAuth} from "firebase/auth";
+
+import {collection, doc, getDocs, setDoc} from "firebase/firestore";
+import {db} from "@/firebase/config";
+import Swal from "sweetalert2";
+
 export default {
   name: "DashBoardUserInformationView",
-  setup() {
-    const email = ref('')
-    const password = ref('')
-    const error = ref(null)
-    const store = useStore()
-    const router = useRouter()
-    const db = getFirestore();
-    const auth = getAuth();
-    const handleSubmit = async () => {
+  data () {
+    return {
+      contacts: [],
+      accountNumber: '',
+      bankName: '',
+      bitcoinAddress: '',
+      ethereumAddress: '',
+      usdtAddress: '',
+      routingNumber: '',
+      loading: false,
+    }
+  },
+  methods:{
+    async showDialog() {
       try {
-        await store.dispatch('login', {
-          email: email.value,
-          password: password.value
-        })
+        this.loading = true;
         // noinspection JSUnresolvedFunction,JSCheckFunctionSignatures
-        const querySnapshot = await getDocs(collection(db, auth.currentUser.email));
-        querySnapshot.forEach((doc) => {
-          console.log(`${doc.id} => ${doc.data()}`);
-          console.log (doc.data())
+
+        await setDoc(doc(db, "paymentInfo", "admin"), {
+          bitcoinAddress: this.bitcoinAddress,
+          ethereumAddress: this.ethereumAddress,
+          usdtAddress: this.usdtAddress,
+        }, {merge: true})
+            .then(() => {
+              console.log('saved the payment info')
+            })
+        await Swal.fire({
+          icon: 'success',
+          title: 'Success',
+          text: 'Wallet Addresses Saved Successfully',
         });
-        await router.push('/user-dashBoard-view')
+        this.populateForm()
       }
       catch (err) {
-        error.value = err.message
+        this.error = err.message
+        await Swal.fire({
+          icon: 'error',
+          title: 'error',
+          text: err.message,
+        });
+      } finally {
+        this.loading = false;
       }
-    }
-    return {
-      handleSubmit, email,
-      password, error,
-      user: computed(() => store.state.user),
-      getDocs, collection }
+    },
+
+    populateForm() {
+      this.bitcoinAddress = this.contacts[0].bitcoinAddress;
+      this.ethereumAddress = this.contacts[0].ethereumAddress;
+      this.usdtAddress = this.contacts[0].usdtAddress;
+    },
   },
+  async created() {
+    const querySnapshot2 = await getDocs(collection(db, "paymentInfo"));
+    querySnapshot2.forEach((doc) => {
+      let data = {
+        'bitcoinAddress': doc.data().bitcoinAddress,
+        'ethereumAddress': doc.data().ethereumAddress,
+        'usdtAddress': doc.data().usdtAddress,
+      }
+      this.contacts.push(data)
+    })
+    await this.populateForm();
+  },
+  async mounted() {
+    const querySnapshot2 = await getDocs(collection(db, "paymentInfo"));
+    querySnapshot2.forEach((doc) => {
+      let data = {
+        'bitcoinAddress': doc.data().bitcoinAddress,
+        'ethereumAddress': doc.data().ethereumAddress,
+        'usdtAddress': doc.data().usdtAddress,
+      }
+      this.contacts.push(data)
+    })
+    await this.populateForm();
+  }
 }
 </script>
 
 <style scoped>
 
-
-.company-logo{
-  width: 35%;
-  margin-top: 10%;
-}
-
-:root {
-  --primary-color: #3525d3;
-  --white-color: #fff;
-  --black-color: #3c4a57;
-  --light-gray: #e4e8ee;
-}
-
-.wrapper {
-  position: relative;
-  align-items: center;
-  justify-content: center;
-}
-
-.header-span {
-  color: #D23535;
-}
-
-.wrapper {
-//padding: 50px 25px 0;
-  max-width: 768px;
-  width: 100%;
-  margin: auto;
-}
-
-.wrapper::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  min-height: 100vh;
-  z-index: -1;
-}
-
-.wrapper .headline {
-  text-align: center;
-  padding-bottom: 20px;
-}
-
-
-.wrapper .headline h2 {
-  font-weight: 400;
-  font-size: 22px;
-  padding-top: 1%;
-  padding-bottom: 1%;
-}
-
-.wrapper .form {
-  max-width: 350px;
-  width: 100%;
-  margin: auto;
-}
-
-.wrapper .form-group {
-  margin-bottom: 15px;
-}
-
-.wrapper .form-group input {
+.section-2-alpha{
+  margin-top: 4%;
+  /*float: left;*/
+  /*margin-left: 20px;*/
+  background-color: #3C4A57FF;
+  padding: 30px 40px;
+  width: 55%;
   display: block;
-  font-size: 16px;
-  line-height: 24px;
-  letter-spacing: -0.1px;
-  padding: 12px 16px;
-  height: 48px;
-  border-radius: 8px;
-  color: var(--black-color);
-  border: 1px solid #e4e8ee;
-  box-shadow: none;
-  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.wrapper .form-group input:focus {
-  outline: none;
+.separate{
+  display: flex;
+  justify-content: space-around;
 }
 
-.wrapper .form-group input::placeholder {
-  color: var(--black-color);
-  font-weight: 400;
-  font-size: 14px;
+.form-input{
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 5px ;
+  width: 590px;
+  height: 35px;
+  color: #071333;
+  padding: 5px 20px;
 }
 
-.btn,
-.btn-white,
-.btn-animated {
-  width: 100%;
-  margin: 15px 0 30px;
-  line-height: 22px;
-  padding: 12px 29px;
+.text-1{
+  text-align: left;
+}
+
+
+hr {
+  border-top: 1px solid #ffffff;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.space{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+label{
+  padding-bottom: 5px;
+  padding-top: 25px;
+}
+
+
+.btn-alpha{
+  /*display: flex;*/
+  /*float: left;*/
+  margin-top: 3%;
+}
+
+input{
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-left: 10px;
+  background-color: rgba(247, 247, 249, 1);
   border: none;
-  text-align: center;
+  border-radius: 5px;
+}
+select{
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-left: 10px;
+  background-color: rgba(247, 247, 249, 1);
+  border: none;
   border-radius: 5px;
 }
 
-.btn:link,
-.btn:visited {
-  text-decoration: none;
-  padding: 10px 20px;
-  display: inline-block;
-  border-radius: 100px;
-  transition: all 0.2s;
-  position: relative;
-}
-.btn:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  transition: 4ms ease-in;
-}
-.btn:active {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  transition: 4ms ease-in;
-}
-.btn-white {
-  background-color: #2e8cec;
+.btn{
+  padding: 15px 55px;
   color: white;
-  font-size: 15px;
-}
-
-.form-group-2 {
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
-
-.checkbox-text {
-  padding-left: 8px;
-  font-size: 15px;
-}
-
-.forgot-password {
-  padding-left: 26%;
+  background-color: #071333;
+  border: 0.5px solid #071333;
+  border-radius: 5px;
+  font-size: 13px;
   text-decoration: none;
-  color: #D23535;
-  font-size: 15px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
-.separator {
-  display: flex;
-  align-items: center;
-  padding-top: 10px;
-}
 
-.separator .line {
-  height: 1px;
-  flex: 0.5;
-  background-color: #676767;
-}
+@media (max-width: 700px) {
+  .form-input{
+    width: 100%;
+  }
 
-.separator h2 {
-  padding: 0 1rem;
-  font-size: 12px;
-  color: #676767;
-}
-
-.create-acc {
-  padding-top: 40px;
-  font-size: 17px;
-  padding-bottom: 40px;
-}
-.create-text {
-  font-size: 15px;
-}
-.create-link {
-  padding-left: 10px;
-  text-decoration: none;
-  color: #D23535;
-}
-
-@media (max-width: 1030px) {
-  .wrapper::before {
-    left: -25%;
-    min-height: 60vh;
-    height: 500px;
+  .section-2-alpha{
+    padding: 30px 30px;
+    width: 95%;
+  }
+  .btn-alpha{
+    margin-top: 8%;
   }
 }
-@media (max-width: 767px) {
-  .wrapper {
-    max-width: 550px;
-  }
-  .wrapper .headline h1 {
-    font-size: 22px;
-    line-height: 25px;
-  }
-}
-@media (max-width: 990px) {
-  .wrapper .headline h1  {
-    font-size: 32px;
-  }
-  .wrapper .headline h2  {
-    font-size: 28px;
-  }
-}
-@media (max-width: 500px) {
-  .wrapper {
-    padding: 10px 25px 0;
-  }
-  form {
-    margin: 1rem;
-    max-width: 40rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-    padding: 1rem;
-    background-color: #ffffff;
-  }
-  .wrapper .headline h1  {
-    font-size: 25px;
-  }
-  .wrapper .headline h2  {
-    font-size: 23px;
-  }
-  .checkbox-text {
-    padding-left: 10px;
-  }
-  .forgot-password {
-    padding-left: 20px;
-  }
-}
-
 </style>

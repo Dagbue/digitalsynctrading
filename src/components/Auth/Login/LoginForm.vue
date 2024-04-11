@@ -39,7 +39,10 @@
               <a  class="forgot-password" @click="onPostClick2" >Forgot Password</a>
             </div>
 
-            <button  class="btn btn-white btn-animated" >Sign In</button>
+<!--            <button  class="btn btn-white btn-animated" >Sign In</button>-->
+            <div class="submit">
+              <base-button :loading="loading">Login</base-button>
+            </div>
 
             <div class="separator">
               <div class="line"></div>
@@ -67,9 +70,11 @@ import { useRouter } from 'vue-router'
 import {getFirestore, collection, getDocs} from "firebase/firestore";
 import {getAuth} from "firebase/auth";
 import Swal from "sweetalert2";
+import BaseButton from "@/components/BaseComponents/buttons/BaseButton.vue";
 
 export default {
   name: 'LoginForm',
+  components: {BaseButton},
   data() {
     return {
       showPassword2: false,
@@ -94,8 +99,32 @@ export default {
     const router = useRouter()
     const db = getFirestore();
     const auth = getAuth();
+    const loading = ref(false);
     const handleSubmit = async () => {
+      // try {
+      //   await store.dispatch('login', {
+      //     email: email.value,
+      //     password: password.value
+      //   })
+      //   // noinspection JSUnresolvedFunction,JSCheckFunctionSignatures
+      //   const querySnapshot = await getDocs(collection(db, auth.currentUser.email));
+      //   querySnapshot.forEach((doc) => {
+      //     console.log(`${doc.id} => ${doc.data()}`);
+      //     console.log (doc.data())
+      //   });
+      //   await router.push('/dashboard-side-bar')
+      // }
+      // catch (err) {
+      //   error.value = err.message
+      //   await Swal.fire({
+      //     icon: 'error',
+      //     title: 'error',
+      //     text: err.message,
+      //   });
+      // }
+
       try {
+        loading.value = true;
         await store.dispatch('login', {
           email: email.value,
           password: password.value
@@ -115,11 +144,13 @@ export default {
           title: 'error',
           text: err.message,
         });
+      } finally {
+        loading.value = false;
       }
     }
     return {
       handleSubmit, email,
-      password, error,
+      password, error,loading,
       user: computed(() => store.state.user),
       getDocs, collection }
   },

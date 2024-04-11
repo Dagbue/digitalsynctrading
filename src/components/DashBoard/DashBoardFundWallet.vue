@@ -33,7 +33,11 @@
 
 
           </div>
-          <input type="submit"  class="bank-trans-btn" placeholder="Enter Amount" />
+<!--          <input type="submit"  class="bank-trans-btn" placeholder="Enter Amount" />-->
+
+          <div class="submit">
+            <base-button :loading="loading">Proceed</base-button>
+          </div>
         </form>
       </div>
 
@@ -45,16 +49,18 @@
 import FundWalletModal from "@/components/BaseComponents/modal/FundWalletModal.vue";
 import {  ref, set, push, serverTimestamp } from "firebase/database";
 import {database, auth ,db} from "@/firebase/config";
-import {doc, setDoc, increment} from "firebase/firestore";
+import {doc, setDoc} from "firebase/firestore";
 import router from "@/router";
+import BaseButton from "@/components/BaseComponents/buttons/BaseButton.vue";
+import Swal from "sweetalert2";
 
 export default {
   name: "DashBoardFundWallet",
-  components: {FundWalletModal},
+  components: {BaseButton, FundWalletModal},
   data() {
     return {
       dialogIsVisible: false,
-      deposit: 0,
+      deposit: "",
       withdrawal : 0,
       bonus : 0,
       bonusMain : 0,
@@ -65,6 +71,7 @@ export default {
       statusDeposit: "Pending",
       transactionType: "deposit",
       selectedItem: null,
+      loading: false,
       options: [
         { id: 1, label: "STANDARD", value1: "STANDARD", value2: "10%" },
         { id: 2, label: "PREMIUM", value1: "PREMIUM", value2: "30%" },
@@ -78,72 +85,92 @@ export default {
       await router.push('/over-view')
     },
     async showDialog() {
-      // noinspection JSUnresolvedFunction,JSCheckFunctionSignatures
-      await setDoc(doc(db, auth.currentUser.email, "USER"), {
-        deposit: increment(this.deposit),
-        depositMethod: this.depositMethod,
-        statusDeposit: this.statusDeposit,
-        selected: this.selected.value1,
-        ROI: this.selected.value2,
-      }, {merge: true})
-          .then(() => {
-            console.log('saved the deposit')
-          })
+      try {
+        this.loading = true;
+        // noinspection JSUnresolvedFunction,JSCheckFunctionSignatures
+        await setDoc(doc(db, auth.currentUser.email, "USER"), {
+          // deposit: increment(this.deposit),
+          depositMethod: this.depositMethod,
+          statusDeposit: this.statusDeposit,
+          selected: this.selected.value1,
+          ROI: this.selected.value2,
+        }, {merge: true})
+            .then(() => {
+              console.log('saved the deposit')
+            })
 
-      await setDoc(doc(db, "Investment", auth.currentUser.email), {
-        deposit: increment(this.deposit),
-        depositMethod: this.depositMethod,
-        statusDeposit: this.statusDeposit,
-        withdrawal: this.withdrawal,
-        bonus: this.bonus,
-        bonusMain: this.bonusMain,
-        profits: this.profits,
-        email: this.email,
-        selected: this.selected.value1,
-        ROI: this.selected.value2,
-      }, {merge: true})
-          .then(() => {
-            console.log('saved the deposit admin')
-          })
+        await setDoc(doc(db, "Investment", auth.currentUser.email), {
+          // deposit: increment(this.deposit),
+          depositMethod: this.depositMethod,
+          statusDeposit: this.statusDeposit,
+          withdrawal: this.withdrawal,
+          bonus: this.bonus,
+          bonusMain: this.bonusMain,
+          profits: this.profits,
+          email: this.email,
+          selected: this.selected.value1,
+          ROI: this.selected.value2,
+        }, {merge: true})
+            .then(() => {
+              console.log('saved the deposit admin')
+            })
 
-      const myUserId = auth.currentUser.uid;
-      const Deposit = ref(database, myUserId + "/DepositRequests");
-      const newDeposit = push(Deposit);
-      await set(newDeposit, {
-        depositMethod: this.depositMethod,
-        deposit: this.deposit,
-        createdAt: serverTimestamp(),
-      })
+        const myUserId = auth.currentUser.uid;
+        const Deposit = ref(database, myUserId + "/DepositRequests");
+        const newDeposit = push(Deposit);
+        await set(newDeposit, {
+          depositMethod: this.depositMethod,
+          deposit: this.deposit,
+          createdAt: serverTimestamp(),
+        })
 
-      const myUserId3 = auth.currentUser.uid;
-      const Deposit3 = ref(database, myUserId3 + "/Transactions");
-      const newDeposit3 = push(Deposit3);
-      await set(newDeposit3, {
-        Method: this.depositMethod,
-        deposit: this.deposit,
-        email: this.email,
-        status: this.statusDeposit,
-        transactionType: this.transactionType,
-        createdAt: serverTimestamp(),
-      })
+        const myUserId3 = auth.currentUser.uid;
+        const Deposit3 = ref(database, myUserId3 + "/Transactions");
+        const newDeposit3 = push(Deposit3);
+        await set(newDeposit3, {
+          Method: this.depositMethod,
+          deposit: this.deposit,
+          email: this.email,
+          status: this.statusDeposit,
+          transactionType: this.transactionType,
+          createdAt: serverTimestamp(),
+        })
 
-      const Deposit2 = ref(database, "/DepositRequests");
-      const newDeposit2 = push(Deposit2);
-      await set(newDeposit2, {
-        depositMethod: this.depositMethod,
-        deposit: this.deposit,
-        email: this.email,
-        statusDeposit: this.statusDeposit,
-        createdAt: serverTimestamp(),
-      })
-      this.selectedItem = this.depositMethod;
-      this.dialogIsVisible = true;
+        const Deposit2 = ref(database, "/DepositRequests");
+        const newDeposit2 = push(Deposit2);
+        await set(newDeposit2, {
+          depositMethod: this.depositMethod,
+          deposit: this.deposit,
+          email: this.email,
+          statusDeposit: this.statusDeposit,
+          createdAt: serverTimestamp(),
+        })
+        this.selectedItem = this.depositMethod;
+        this.dialogIsVisible = true;
+        this.loading = false;
+      }
+      catch (err) {
+        this.error = err.message
+        await Swal.fire({
+          icon: 'error',
+          title: 'error',
+          text: err.message,
+        });
+      } finally {
+        this.loading = false;
+      }
     },
   }
 }
 </script>
 
 <style scoped>
+.submit{
+  display: block;
+  width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}
 .section-1{
   margin-top: 5%;
 }

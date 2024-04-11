@@ -63,7 +63,7 @@
           <li>
             <a class="hover">
               <img src="../../assets/virtacc.svg" alt="logo" class="link-img" />
-              <span class="links-name">User Information</span>
+              <span class="links-name">Payment Info</span>
             </a>
           </li>
         </router-link>
@@ -72,7 +72,7 @@
           <li>
             <a class="hover">
               <img src="@/assets/pie-chart.svg" alt="logo" class="link-img" />
-              <span class="links-name">User DashBoard</span>
+              <span class="links-name">Add Experts</span>
             </a>
           </li>
         </router-link>

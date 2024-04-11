@@ -18,13 +18,23 @@
 <!--    </div>-->
     <div class="copy-trader-alpha">
 
-      <div class="copy-trader">
-        <img src="https://defitradehub.pro/uploads/images/1710778160.jpg" class="copy-image" alt=""/>
+      <div class="empty-state" v-if="this.contacts.length === 0">
+        <img src="@/assets/empty.svg" alt="empty">
+        <p class="empty-state-text-1">You have nothing to see</p>
+        <p class="empty-state-text-2">This is where your Trade experts will appear</p>
+        <!--        <p class="empty-state-text-3">-->
+        <!--          <i class='bx bx-plus' ></i>-->
+        <!--          Transaction-->
+        <!--        </p>-->
+      </div>
+
+      <div v-else v-for="child in contacts" :key="child.key" class="copy-trader">
+        <img :src="child.image" class="copy-image" alt=""/>
 
         <div class="copy-trader-rate">
-          <p class="text-1">Joshua Jake</p>
-          <p class="text-2">90.33% Win Rate</p>
-          <p class="text-3">10% Profit Share</p>
+          <p class="text-1">{{child.firstName}} {{child.lastName}}</p>
+          <p class="text-2">{{ child.winRate }}% Win Rate</p>
+          <p class="text-3">{{child.profitShare}}% Profit Share</p>
         </div>
 
         <div class="btn-part">
@@ -32,134 +42,6 @@
         </div>
       </div>
 
-      <div class="copy-trader">
-        <img src="https://defitradehub.pro/uploads/images/1709997722.jpg" class="copy-image" alt=""/>
-
-        <div class="copy-trader-rate">
-          <p class="text-1">Ben Marcus</p>
-          <p class="text-2">94.27% Win Rate</p>
-          <p class="text-3">10% Profit Share</p>
-        </div>
-
-        <div class="btn-part">
-          <p class="btn">copy</p>
-        </div>
-      </div>
-
-      <div class="copy-trader">
-        <img src="https://defitradehub.pro/uploads/images/1709972637.jpg" class="copy-image" alt=""/>
-
-        <div class="copy-trader-rate">
-          <p class="text-1">Lucas Manz</p>
-          <p class="text-2">89.06% Win Rate</p>
-          <p class="text-3">10% Profit Share</p>
-        </div>
-
-        <div class="btn-part">
-          <p class="btn">copy</p>
-        </div>
-      </div>
-
-      <div class="copy-trader">
-        <img src="https://defitradehub.pro/uploads/images/1709029372.jpg" class="copy-image" alt=""/>
-
-        <div class="copy-trader-rate">
-          <p class="text-1">Ethan Antonio</p>
-          <p class="text-2">94.93% Win Rate</p>
-          <p class="text-3">10% Profit Share</p>
-
-        </div>
-
-        <div class="btn-part">
-          <p class="btn">copy</p>
-        </div>
-      </div>
-
-      <div class="copy-trader">
-        <img src="https://defitradehub.pro/uploads/images/1708017304.jpg" class="copy-image" alt=""/>
-
-        <div class="copy-trader-rate">
-          <p class="text-1">CRYPTO THRO</p>
-          <p class="text-2">95.76% Win Rate</p>
-          <p class="text-3">10% Profit Share</p>
-
-        </div>
-
-        <div class="btn-part">
-          <p class="btn">copy</p>
-        </div>
-      </div>
-
-      <div class="copy-trader">
-        <img src="https://defitradehub.pro/uploads/images/1706219541.jpg" class="copy-image" alt=""/>
-
-        <div class="copy-trader-rate">
-          <p class="text-1">Brian pezim</p>
-          <p class="text-2">81.44% Win Rate</p>
-          <p class="text-3">10% Profit Share</p>
-        </div>
-
-        <div class="btn-part">
-          <p class="btn">copy</p>
-        </div>
-      </div>
-
-      <div class="copy-trader">
-        <img src="https://defitradehub.pro/uploads/images/1706021644.jpg" class="copy-image" alt=""/>
-
-        <div class="copy-trader-rate">
-          <p class="text-1">Zach Rector</p>
-          <p class="text-2">94.46% Win Rate</p>
-          <p class="text-3">10% Profit Share</p>
-        </div>
-
-        <div class="btn-part">
-          <p class="btn">copy</p>
-        </div>
-      </div>
-
-      <div class="copy-trader">
-        <img src="https://defitradehub.pro/uploads/images/1705700392.jpg" class="copy-image" alt=""/>
-
-        <div class="copy-trader-rate">
-          <p class="text-1">Bernie Daly</p>
-          <p class="text-2">92.75% Win Rate</p>
-          <p class="text-3">10% Profit Share</p>
-        </div>
-
-        <div class="btn-part">
-          <p class="btn">copy</p>
-        </div>
-      </div>
-
-      <div class="copy-trader">
-        <img src="https://defitradehub.pro/uploads/images/1695523936.jpg" class="copy-image" alt=""/>
-
-        <div class="copy-trader-rate">
-          <p class="text-1">Mack Gray</p>
-          <p class="text-2">92.83% Win Rate</p>
-          <p class="text-3"> 15% Profit Share</p>
-        </div>
-
-        <div class="btn-part">
-          <p class="btn">copy</p>
-        </div>
-      </div>
-
-      <div class="copy-trader">
-        <img src="https://defitradehub.pro/uploads/images/1705967064.jpg" class="copy-image" alt=""/>
-
-        <div class="copy-trader-rate">
-          <p class="text-1">Jason Wilibo</p>
-          <p class="text-2">95.17% Win Rate</p>
-          <p class="text-3">10% Profit Share</p>
-
-        </div>
-
-        <div class="btn-part">
-          <p class="btn">copy</p>
-        </div>
-      </div>
 
     </div>
   </div>
@@ -169,6 +51,9 @@
 // import SubscribeModal from "@/components/BaseComponents/modal/SubscribeModal.vue";
 // import Mt4Modal from "@/components/BaseComponents/modal/Mt4Modal.vue";
 
+import {collection, getDocs} from "firebase/firestore";
+import {db} from "@/firebase/config";
+
 export default {
   name: "DashBoardSubscriptionTrade",
   // components: {Mt4Modal, SubscribeModal},
@@ -176,6 +61,7 @@ export default {
     return {
       dialogIsVisible: false,
       dialogIsVisible2: false,
+      contacts: [],
     };
   },
   methods: {
@@ -192,11 +78,49 @@ export default {
       this.dialogIsVisible2 = false;
     },
   },
+  async created() {
+    const querySnapshot2 = await getDocs(collection(db, "tradeExperts"));
+    querySnapshot2.forEach((doc) => {
+      let data = {
+        'image': doc.data().image,
+        'firstName': doc.data().firstName,
+        'lastName': doc.data().lastName,
+        'winRate': doc.data().winRate,
+        'profitShare': doc.data().profitShare,
+        'status': doc.data().status,
+      }
+      this.contacts.push(data)
+    })
+
+  },
 }
 </script>
 
 
 <style scoped>
+.empty-state{
+  text-align: center;
+  margin-top: 2%;
+  /*margin-right: 8%;*/
+}
+
+.empty-state-text-1{
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 20px;
+  color: #353542;
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
+}
+
+.empty-state-text-2{
+  font-weight: 200;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  color: #353542;
+  padding-bottom: 1.25%;
+}
 .body{
   padding: 32px;
 }
@@ -249,6 +173,45 @@ export default {
   border-radius: 4px;
   font-size: 13px;
 }
+
+@media (max-width: 700px) {
+  .copy-trader{
+    display: block;
+    padding: 35px 0;
+  }
+  .copy-image{
+    width: 23%;
+    border-radius: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+  .text-1{
+    padding-bottom: 15px;
+    font-size: 18px;
+  }
+
+  .text-2{
+    padding-bottom: 7px;
+    font-size: 15px;
+  }
+
+  .text-3{
+    font-size: 13px;
+  }
+
+  .btn{
+    width: 180px;
+    margin-top: 4%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+}
+
 </style>
 
 

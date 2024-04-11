@@ -6,10 +6,12 @@ import { getStorage } from "firebase/storage";
 
 
 
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyBeqpyPclSjVEp4NfDi0pB9LeR7xGHtATM",
     authDomain: "tradesyncpro.firebaseapp.com",
+    databaseURL: "https://tradesyncpro-default-rtdb.europe-west1.firebasedatabase.app",
     projectId: "tradesyncpro",
     storageBucket: "tradesyncpro.appspot.com",
     messagingSenderId: "311459524491",

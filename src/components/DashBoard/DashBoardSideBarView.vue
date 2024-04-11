@@ -67,7 +67,7 @@
           <li>
             <a class="hover">
               <img src="../../assets/virtacc.svg" alt="logo" class="link-img" />
-              <span class="links-name">Assets Market</span>
+              <span class="links-name">Market</span>
             </a>
           </li>
         </router-link>
@@ -146,7 +146,7 @@
         <li @click="toggleMobileNav2">
           <a>
             <img src="../../assets/virtacc.svg" alt="logo" class="link-img" />
-            <router-link to="/refer-users" class="">Assets Market</router-link>
+            <router-link to="/refer-users" class="">Market</router-link>
           </a>
         </li>
 

@@ -3,7 +3,6 @@
     <div class="backdrop"></div>
     <dialog open>
       <div class="alpha">
-
         <div class="first-part">
           <img src="@/assets/fund-wallet-icon.svg" alt="fund-wallet-icon"/>
           <i class='bx bx-x' @click="close"></i>
@@ -12,83 +11,74 @@
           <p class="text-1">Fund your wallet</p>
           <p class="text-2">How to fund your wallet:</p>
           <p class="text-3">Transfer desired amount to the Wallet details below and have your balance funded</p>
-          <p class="text-3">Note: After making your deposit,kindly send a screenshot/proof of deposit to
+          <p class="text-3">Note: After making your deposit, kindly send a screenshot/proof of deposit to
             <span class="note-span">
-              <a href="mailto:support@tradesyncpro.com" class="para-last">support@digitalsynctrading.com</a>
+              <a href="mailto:support@digitalsynctrading.com" class="para-last">support@digitalsynctrading.com</a>
             </span> for documentation and to boost the funding process
           </p>
           <br/>
-          <div v-if="this.selectedItem === 'bitcoin' ">
-            <p class="text-4">Wallet Name: {{selectedItem}}</p>
-            <p class="text-5">Wallet Address: bc1q2nxm4jrpj7wpu6ssw6m3ajd6pqara36udhcamq</p>
-          </div>
-
-          <div v-if="this.selectedItem === 'ethereum' ">
-            <p class="text-4">Wallet Name: {{selectedItem}}</p>
-            <p class="text-5">Wallet Address: 0x0dD4E954D5363b5da3F5AB01559d076ebBe4D0bA</p>
-          </div>
-
-          <div v-if="this.selectedItem === 'USDT' ">
-            <p class="text-4">Wallet Name: {{selectedItem}}</p>
-            <p class="text-5">Wallet Address: 0x0dD4E954D5363b5da3F5AB01559d076ebBe4D0bA</p>
-          </div>
-
+          <template v-if="contacts.length > 0">
+            <div v-if="selectedItem === 'bitcoin'">
+              <p class="text-4">Wallet Name: {{ selectedItem }}</p>
+              <p class="text-5">Wallet Address: {{ contacts[0].bitcoinAddress }}</p>
+            </div>
+            <div v-if="selectedItem === 'ethereum'">
+              <p class="text-4">Wallet Name: {{ selectedItem }}</p>
+              <p class="text-5">Wallet Address: {{ contacts[0].ethereumAddress }}</p>
+            </div>
+            <div v-if="selectedItem === 'USDT'">
+              <p class="text-4">Wallet Name: {{ selectedItem }}</p>
+              <p class="text-5">Wallet Address: {{ contacts[0].usdtAddress }}</p>
+            </div>
+          </template>
         </div>
-
-
         <br/>
-
-        <button v-if="this.selectedItem === 'bitcoin' " @click="copyToClipboard('bc1q2nxm4jrpj7wpu6ssw6m3ajd6pqara36udhcamq')">Copy</button>
-
-        <button v-if="this.selectedItem === 'ethereum' " @click="copyToClipboard('0x0dD4E954D5363b5da3F5AB01559d076ebBe4D0bA')">Copy</button>
-
-        <button v-if="this.selectedItem === 'USDT' " @click="copyToClipboard('0x0dD4E954D5363b5da3F5AB01559d076ebBe4D0bA')">Copy</button>
-
       </div>
-
     </dialog>
   </div>
 </template>
 
 <script>
-
-
 import Swal from "sweetalert2";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "@/firebase/config";
+import router from "@/router";
+
 export default {
   name: "FundWalletModal",
   emits: ['close'],
-  props: {
-    selectedItem: {
-      type: Object,
-      default: null
+  data() {
+    return {
+      contacts: [],
     }
   },
-  methods:{
-    close(){
+  props: {
+    selectedItem: Object,
+  },
+  methods: {
+    close() {
       this.$emit('close');
+      router.push('/over-view');
       Swal.fire({
         icon: 'success',
         title: 'Success',
-        text: 'Deposit Request Sent!',
+        text: 'Deposit Request Pending!',
       });
     },
-
-    copyToClipboard(content) {
-      const textarea = document.createElement('textarea')
-      textarea.value = content
-      document.body.appendChild(textarea)
-      textarea.select()
-      document.execCommand('copy')
-      document.body.removeChild(textarea)
-      Swal.fire({
-        icon: 'success',
-        title: 'Success',
-        text: 'Copied To Clipboard',
+  },
+  async created() {
+    const querySnapshot2 = await getDocs(collection(db, "paymentInfo"));
+    querySnapshot2.forEach((doc) => {
+      this.contacts.push({
+        bitcoinAddress: doc.data().bitcoinAddress,
+        ethereumAddress: doc.data().ethereumAddress,
+        usdtAddress: doc.data().usdtAddress,
       });
-    }
+    });
   },
 }
 </script>
+
 <style scoped >
 
 .backdrop {
