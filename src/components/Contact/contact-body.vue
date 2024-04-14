@@ -13,7 +13,7 @@
         <p class="contact-text-para-2">
           71-75 Uxbridge Road, London, England, W5 5SL
         </p>
-<!--        <p class="contact-text-para-3">Telephone: +1 (510) 256-9690</p>-->
+        <p class="contact-text-para-3">Signal Line: +1 (435) 580-8033</p>
         <p class="contact-text-para-4">E-mail: support@digitalsynctrading.com</p>
       </div>
 
