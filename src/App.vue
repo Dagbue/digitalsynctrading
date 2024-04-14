@@ -93,11 +93,11 @@ input[type=number] {
   z-index: 100;
 }
 
-.bxl-whatsapp {
-  position: absolute;
-  top: 21%;
-  right: 22.5%;
-}
+/*.bxl-whatsapp {*/
+/*  position: absolute;*/
+/*  top: 21%;*/
+/*  right: 22.5%;*/
+/*}*/
 
 /* for mobile */
 @media screen and (max-width: 767px){

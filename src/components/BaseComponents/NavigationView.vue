@@ -10,6 +10,9 @@
         <p class="topmost-header-text">
           <i class='bx bxs-time-five' ></i>Mon – Sat: 9:00am–18:00pm.
         </p>
+        <p class="topmost-header-text">
+          <i class='bx bxl-whatsapp'></i>+1 14355808033
+        </p>
 
       </div>
     </div>
@@ -237,6 +240,9 @@ export default {
 </script>
 
 <style scoped>
+.bxl-whatsapp{
+  color: #ffffff;
+}
 
 .bx-menu{
   font-size: 30px;
@@ -363,7 +369,7 @@ export default {
 
 .topmost-header-text {
   font-size: 14px;
-  padding-right: 28px;
+  padding-right: 15px;
   display: flex;
   align-items: center;
   align-content: center;
@@ -376,7 +382,7 @@ export default {
 }
 i{
   padding-right: 4px;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .dropdown-nav{
