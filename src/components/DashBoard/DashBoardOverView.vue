@@ -9,7 +9,7 @@
 
         <p class="fund-wallet" @click="onPostClick">
           <i class='bx bx-plus' ></i>
-          Fund Wallet
+          Deposit
         </p>
 
         <p class="withdraw" @click="onPostClick2">
@@ -190,7 +190,7 @@ export default {
   padding: 8px 14px;
   gap: 8px;
   font-size: 12px;
-  width: 125px;
+  width: 100px;
   height: 33px;
   background: #124DA8;
   color: #ffffff;
