@@ -143,6 +143,9 @@ export default {
 </script>
 
 <style scoped>
+.alpha {
+  padding-bottom: 10px;
+}
 .balance-part{
   background: url('https://defitradehub.pro/assets/images/site/Background1.png');
   background-size: cover;

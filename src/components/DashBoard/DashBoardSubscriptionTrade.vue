@@ -1,3 +1,4 @@
+<!--suppress ALL -->
 <template>
   <div class="body">
 <!--    <subscribe-modal @close="hideDialog" v-if="dialogIsVisible"/>-->
@@ -37,8 +38,12 @@
           <p class="text-3">{{child.profitShare}}% Profit Share</p>
         </div>
 
-        <div class="btn-part">
+        <div v-if="child.status === 'notCopied'" class="btn-part" @click="updateDocument(child)">
           <p class="btn">copy</p>
+        </div>
+
+        <div v-else class="btn-part" @click="updateDocument(child)">
+          <p class="btn">Copying</p>
         </div>
       </div>
 
@@ -51,8 +56,9 @@
 // import SubscribeModal from "@/components/BaseComponents/modal/SubscribeModal.vue";
 // import Mt4Modal from "@/components/BaseComponents/modal/Mt4Modal.vue";
 
-import {collection, getDocs} from "firebase/firestore";
+import {collection, getDocs, doc, updateDoc } from "firebase/firestore";
 import {db} from "@/firebase/config";
+import Swal from "sweetalert2";
 
 export default {
   name: "DashBoardSubscriptionTrade",
@@ -62,6 +68,8 @@ export default {
       dialogIsVisible: false,
       dialogIsVisible2: false,
       contacts: [],
+      updatedValue: 'Copied',
+      docId: '' // Set this as needed
     };
   },
   methods: {
@@ -77,6 +85,36 @@ export default {
     hideDialog2() {
       this.dialogIsVisible2 = false;
     },
+    async updateDocument(child) {
+      // const docRef = db.collection("tradeExperts").doc(child.firstName);
+
+      const washingtonRef = doc(db, "tradeExperts", child.firstName);
+
+      await updateDoc(washingtonRef, {
+        status: this.updatedValue
+      })
+
+      // // Only update the specific field
+      // docRef.update({
+      //   status: this.updatedValue
+      // })
+          .then(() => {
+            console.log('Document successfully updated!');
+            Swal.fire({
+              icon: 'success',
+              title: 'Success',
+              text: 'Trder Copied successfully',
+            });
+          })
+          .catch((error) => {
+            console.error('Error updating document: ', error);
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: 'Try Again',
+            });
+          });
+    }
   },
   async created() {
     const querySnapshot2 = await getDocs(collection(db, "tradeExperts"));

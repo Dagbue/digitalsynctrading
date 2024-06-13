@@ -15,7 +15,7 @@
         <!--        <p class="text-2">4 Months</p>-->
         <p class="text-3">4 Months</p>
 
-        <div @click="showDialog" class="btn" >
+        <div class="btn" @click="showDialog" >
           <p>Invest Now</p>
         </div>
 
@@ -51,7 +51,7 @@
         <!--        <p class="text-2">4 Months</p>-->
         <p class="text-3">8 Months</p>
 
-        <div @click="showDialog" class="btn" >
+        <div class="btn" @click="showDialog" >
           <p>Invest Now</p>
         </div>
 
@@ -87,7 +87,7 @@
         <!--        <p class="text-2">4 Months</p>-->
         <p class="text-3">12 Months</p>
 
-        <div @click="showDialog" class="btn" >
+        <div class="btn" @click="showDialog" >
           <p>Invest Now</p>
         </div>
 
@@ -103,82 +103,6 @@
 
         <div class="separate">
           <p>1.8% DAILY</p>
-          <i class='bx bxs-info-circle'></i>
-        </div>
-
-        <div class="separate">
-          <p>GUARANTEED ROI</p>
-          <i class='bx bxs-info-circle'></i>
-        </div>
-
-        <div class="separate">
-          <p>24/7 SUPPORT</p>
-          <i class='bx bxs-info-circle'></i>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="section-alpha-2">
-
-      <div class="third-section top">
-        <p class="text-1">Deluxe</p>
-        <p class="text-2">40<span class="text-2-inner">%</span></p>
-        <!--        <p class="text-2">4 Months</p>-->
-        <p class="text-3">12 Months</p>
-
-        <div class="btn" >
-          <p>Invest Now</p>
-        </div>
-
-        <div class="separate">
-          <p>$100,000 MINIMUM DEPOSIT</p>
-          <i class='bx bxs-info-circle'></i>
-        </div>
-
-        <div class="separate">
-          <p>ENHANCED SECURITY</p>
-          <i class='bx bxs-info-circle'></i>
-        </div>
-
-        <div class="separate">
-          <p>2.0% DAILY</p>
-          <i class='bx bxs-info-circle'></i>
-        </div>
-
-        <div class="separate">
-          <p>GUARANTEED ROI</p>
-          <i class='bx bxs-info-circle'></i>
-        </div>
-
-        <div class="separate">
-          <p>24/7 SUPPORT</p>
-          <i class='bx bxs-info-circle'></i>
-        </div>
-      </div>
-
-      <div class="third-section top">
-        <p class="text-1">401k Plan</p>
-        <p class="text-2">50<span class="text-2-inner">%</span></p>
-        <!--        <p class="text-2">4 Months</p>-->
-        <p class="text-3">24 Months</p>
-
-        <div @click="showDialog" class="btn" >
-          <p>Invest Now</p>
-        </div>
-
-        <div class="separate">
-          <p>$1million MINIMUM DEPOSIT</p>
-          <i class='bx bxs-info-circle'></i>
-        </div>
-
-        <div class="separate">
-          <p>ENHANCED SECURITY</p>
-          <i class='bx bxs-info-circle'></i>
-        </div>
-
-        <div class="separate">
-          <p>5% DAILY</p>
           <i class='bx bxs-info-circle'></i>
         </div>
 
@@ -300,8 +224,8 @@ export default {
   gap: 8px;
   width: 225px;
   height: 44px;
-  background: #124DA8;
-  border: 1px solid #124DA8;
+  background: #071333;
+  border: 1px solid #071333;
   box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
   border-radius: 4px;
   font-weight: 500;
@@ -313,7 +237,7 @@ export default {
 
 .btn p:hover{
   background-color: #2e8cec;
-  color: #ffffffff;
+  color: #ffffff;
   border: 1px solid #2e8cec;
   -webkit-transition: all 0.35s ease;
   transition: all 0.35s ease;

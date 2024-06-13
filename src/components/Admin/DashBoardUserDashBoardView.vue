@@ -295,6 +295,7 @@ td {
   font-weight: 200;
   font-size: 15px;
   /*border-bottom: 1px solid #E3EBF6;*/
+  width: 500px;
 }
 
 .empty-state{
