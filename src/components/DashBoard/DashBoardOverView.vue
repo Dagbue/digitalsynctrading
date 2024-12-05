@@ -20,6 +20,8 @@
       </div>
     </div>
 
+
+
     <div class="law">
       <div class="balance-part">
 
@@ -28,19 +30,22 @@
             <p style="font-size: 18px;" v-if="approved === 'Pending'">$0.00</p>
             <p style="font-size: 18px;" v-else-if="approved === 'approved'">${{formatNumber(this.contacts.deposit)}}.00</p>
             <p style="font-size: 18px;" v-else>$0.00</p>
-            <p style="font-size: 12px;">DEPOSIT BALANCE</p>
+            <hr class="dashboard-divider">
+            <p style="font-size: 13px;font-weight: 900;color: #0f2e6d">DEPOSIT BALANCE</p>
           </div>
-          <div class="balance-2">
+          <div class="balance-1">
             <p style="font-size: 18px;" v-if="approved === 'Pending'">$0.00</p>
             <p style="font-size: 18px;" v-else-if="approved === 'approved'">${{formatNumber(this.contacts.profits)}}.00</p>
             <p style="font-size: 18px;" v-else>$0.00</p>
-            <p style="font-size: 12px;">PROFIT BALANCE</p>
+            <hr class="dashboard-divider">
+            <p style="font-size: 13px;font-weight: 900;color: #0f2e6d">PROFIT BALANCE</p>
           </div>
-          <div class="balance-3">
+          <div class="balance-1">
             <p style="font-size: 18px;" v-if="approved === 'Pending'">$0.00</p>
             <p style="font-size: 18px;" v-else-if="approved === 'approved'">${{formatNumber(this.contacts.deposit + this.contacts.profits + this.contacts.bonusMain + this.contacts.bonus - this.contacts.withdrawal)  }}.00</p>
             <p style="font-size: 18px;" v-else>$0.00</p>
-            <p style="font-size: 12px;">TOTAL BALANCE</p>
+            <hr class="dashboard-divider">
+            <p style="font-size: 13px;font-weight: 900;color: #0f2e6d">TOTAL BALANCE</p>
           </div>
         </div>
 
@@ -147,23 +152,30 @@ export default {
   padding-bottom: 10px;
 }
 .balance-part{
-  background: url('https://defitradehub.pro/assets/images/site/Background1.png');
-  background-size: cover;
-  background-position: bottom;
-  background-repeat: no-repeat;
-  height: 190px;
-  width: 750px;
+  width: 85%;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 10px;
 }
 .balance{
-  color: #FFFFFF;
+  color: #101828;
   display: flex;
-  justify-content: space-evenly;
-  text-align: center;
-  padding-top: 10%;
+  gap: 20px;
+  justify-content: center;
+  text-align: left;
+  width: 100%;
+}
+.balance-1{
+  border: 2px solid #071333;
+  padding: 25px 60px;
+  padding-left: 2%;
+  border-radius: 6px;
+  line-height: 2;
+  width: 100%;
+  font-weight: bold;
+}
+.dashboard-divider{
+  border: 0.5px solid #17317a;
 }
 .signal-part{
   text-align: center;
@@ -351,13 +363,24 @@ export default {
     font-size: 14px;
   }
 
+  .balance-part{
+    width: 90%;
+  }
+  .balance{
+    flex-direction: column;
+  }
+  .balance-1{
+    padding: 25px 60px;
+    padding-left: 4%;
+  }
+
 }
 
 @media (max-width: 500px) {
 
   .balance-part{
-    height: 150px;
-    width: 100%;
+    margin-top: 4%;
+    margin-bottom: 4%;
   }
 
 
