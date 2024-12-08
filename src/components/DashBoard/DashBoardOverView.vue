@@ -166,13 +166,15 @@ export default {
   width: 100%;
 }
 .balance-1{
-  border: 2px solid #071333;
+  border: 0.5px solid #2E8CEC3F;
+  background: rgba(46, 140, 236, 0.15);
   padding: 25px 60px;
   padding-left: 2%;
   border-radius: 6px;
   line-height: 2;
   width: 100%;
   font-weight: bold;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 .dashboard-divider{
   border: 0.5px solid #17317a;
